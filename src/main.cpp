@@ -19,7 +19,7 @@ void edit() {}
 int main(int argc, char* argv[]) {
     int opt = 0;
     int option_index = 0;
-    while ((opt = getopt_long(argc, argv, "h:e:v:", long_options,
+    while ((opt = getopt_long(argc, argv, "he:v:", long_options,
                               &option_index) != EOF)) {
         switch (opt) {
             case 'h':
