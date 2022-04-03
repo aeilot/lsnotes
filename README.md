@@ -1,2 +1,2 @@
 # lsnotes
-Add a description for your directories!
+Add a description to your directories!
