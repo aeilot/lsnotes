@@ -3,8 +3,6 @@
 #include <cstdio>
 #include <iostream>
 
-#define VERSION "0.0.1"
-
 using namespace std;
 
 static const struct option long_options[] = {
@@ -14,7 +12,7 @@ static const struct option long_options[] = {
     {0, 0, 0, 0}};
 
 void help() {
-    cout << "lsnotes (Version " << VERSION << ")" << endl;
+    cout << "lsnotes" << endl;
     cout
         << "lsnotes [--help|-h] [--edit|-e (directory)] [--view|-v (directory)]"
         << endl;
