@@ -35,6 +35,7 @@ void view() {
             int c;
             if ((c = fgetc(note)) != EOF) cout << char(c);
         }
+        cout << "---" << endl;
     }
     fclose(note);
 }
