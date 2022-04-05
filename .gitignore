@@ -232,3 +232,6 @@ dkms.conf
 
 .idea
 cmake-build-debug
+
+build
+.vscode
