@@ -24,6 +24,8 @@ lsnotes --view or lsnotes -v # does the same as above
 lsnotes --help # for assistance
 
 lsnotes --edit or lsnotes -e # edits the .lsnotes file with your default editor
+
+lsnotes --config or lsnotes -c # for configuration
 ```
 
 ### Examples
