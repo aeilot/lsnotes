@@ -1,5 +1,5 @@
 # lsnotes
-Add a description to your directories! Simply add a `.lsnotes` file and that's it!
+Add a description to your directories! Simply add a `.lsnotes` file and that's it! This is the original repo of the `lsnotes` project.
 
 It's a especially simple project, but the idea makes me feel fresh! It should be made a shell project but I don't feel like that. Anyway, it has endless possibilities!
 
@@ -35,6 +35,12 @@ alias ls = "lsnotes && ls"
 alias pwd = "lsnotes && pwd"
 # etc.
 ```
+
+## Other Ports
+
+We welcome you to implement the `.lsnotes` standard using various languages or on diverse platforms.
+
+- NodeJS: [MrWillCom/lnn](https://github.com/MrWillCom/lnn)
 
 ---
 Made with love by [@aeilot](https://github.com/aeilot) at [aeilot.top](https://aeilot.top)
