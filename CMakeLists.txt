@@ -47,14 +47,7 @@ message(" ")
 # =========== BUILD SOURCE FILES ============
 
 set(SOURCES
-    src/core/dbutils.cpp
-        src/core/preferancemanager.cpp
-    src/main.cpp
-    src/ui/aboutdialog.cpp
-    src/ui/mainwindow.cpp
-    src/ui/preferancedialog.cpp
-    src/core/curlutils.cpp
-        src/core/photoutils.cpp src/core/photoutils.h)
+    src/main.cpp)
 
 add_executable(lsnotes
     ${SOURCES}
