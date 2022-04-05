@@ -9,11 +9,17 @@ using namespace std;
 static const struct option long_options[] = {{"help", no_argument, NULL, 'h'},
                                              {"edit", no_argument, NULL, 'e'},
                                              {"view", no_argument, NULL, 'v'},
+                                             {"config", no_argument, NULL, 'c'},
                                              {0, 0, 0, 0}};
+
+struct LSConfig {
+    int addTitle;
+    int addBottom;
+} instance;
 
 void help() {
     cout << "lsnotes" << endl;
-    cout << "lsnotes [--help|-h] [--edit|-e] [--view|-v]" << endl;
+    cout << "lsnotes [--help|-h] [--edit|-e] [--view|-v] [--config|-c]" << endl;
     cout << "The program will automatically do \"view\" operation if without "
             "arguments. Skip if there's no .lsnotes file"
          << endl
@@ -24,18 +30,14 @@ void help() {
 
 void view() {
     FILE* note = NULL;
-    char cwd[1000];
-    getcwd(cwd, sizeof(cwd));
-    char* t = new char[strlen(cwd) + 9 + 1];
-    strcpy(t, cwd);
-    strcat(t, "/.lsnotes");
-    note = fopen(t, "r");
+    note = fopen(".lsnotes", "r");
     if (note != NULL) {
+        if (instance.addTitle) cout << "LSNOTES:" << endl;
         while (!feof(note)) {
             int c;
             if ((c = fgetc(note)) != EOF) cout << char(c);
         }
-        cout << "---" << endl;
+        if (instance.addBottom) cout << "---" << endl;
     }
     fclose(note);
 }
@@ -45,13 +47,44 @@ void edit() {
     system("$EDITOR .lsnotes");
 }
 
+void readConfig() {
+    FILE* config = NULL;
+    config = fopen(".lsnotesrc", "r");
+    if (config != NULL) {
+        fscanf(config, "%d%d", &instance.addTitle, &instance.addBottom);
+    } else {
+        instance.addBottom = 1;
+        instance.addTitle = 0;
+    }
+    fclose(config);
+}
+
+void config() {
+    FILE* configtmp = NULL;
+    configtmp = fopen(".lsnotesrc.tmp", "w+");
+    cout << "CONFIGURATION (0: no, 1: yes)" << endl;
+    cout << "Add a title (Currently " << instance.addTitle << "): ";
+    int t;
+    cin >> t;
+    instance.addTitle = t;
+    cout << "Add a bottom divider (Currently " << instance.addBottom << "): ";
+    cin >> t;
+    instance.addBottom = t;
+    fprintf(configtmp, "%d %d", instance.addTitle, instance.addBottom);
+    fclose(configtmp);
+    remove(".lsnotesrc");
+    rename(".lsnotesrc.tmp", ".lsnotesrc");
+    cout << "Changes saved" << endl;
+}
+
 int main(int argc, char* argv[]) {
     // Init
     int opt = 0;
     int option_index = 0;
+    readConfig();
     // Handle options
     while (1) {
-        opt = getopt_long(argc, argv, "hev", long_options, &option_index);
+        opt = getopt_long(argc, argv, "hevc", long_options, &option_index);
         if (opt == -1) break;
         switch (opt) {
             case 'h':
@@ -64,6 +97,10 @@ int main(int argc, char* argv[]) {
                 break;
             case 'v':
                 view();
+                exit(EXIT_SUCCESS);
+                break;
+            case 'c':
+                config();
                 exit(EXIT_SUCCESS);
                 break;
             default:
