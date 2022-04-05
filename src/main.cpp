@@ -43,8 +43,21 @@ void view() {
 }
 
 void edit() {
-    cout << "Editing the .lsnotes file with the default editor" << endl;
-    system("$EDITOR .lsnotes");
+    const char* editor = getenv("EDITOR");
+    if (editor == NULL) {
+        cout << "Default Editor Not Set." << endl;
+#if defined(_WIN32)
+        cout << "Using Notepad.exe" << endl;
+        system("notepad.exe .lsnotes");
+#else
+        cout << "Using vi" << endl;
+        system("vi .lsnotes");
+#endif
+        cout << "You can set $EDITOR to PATH" << endl;
+    } else {
+        cout << "Editing the .lsnotes file with the default editor" << endl;
+        system("$EDITOR .lsnotes");
+    }
 }
 
 void readConfig() {
