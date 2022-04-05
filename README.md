@@ -32,6 +32,7 @@ lsnotes --config or lsnotes -c # for configuration
 
 ```sh
 alias ls = "lsnotes && ls"
+alias pwd = "lsnotes && pwd"
 # etc.
 ```
 
