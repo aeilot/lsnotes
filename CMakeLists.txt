@@ -48,3 +48,7 @@ set(SOURCES
 add_executable(lsnotes
     ${SOURCES}
 )
+
+install(TARGETS lsnotes
+    RUNTIME DESTINATION bin
+)
