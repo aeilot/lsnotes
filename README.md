@@ -1,6 +1,15 @@
 # lsnotes
 Add a description to your directories! Simply add a `.lsnotes` file and that's it!
 
+## Installation
+
+```sh
+mkdir build && cd build
+cmake ..
+make
+make install
+```
+
 ## Usage
 
 ```sh
