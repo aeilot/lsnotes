@@ -62,7 +62,11 @@ void edit() {
 
 void readConfig() {
     FILE* config = NULL;
-    config = fopen(".lsnotesrc", "r");
+    char* home = getenv("HOME");
+    char* path = new char[strlen(home) + 12];
+    strcpy(path, home);
+    strcat(path, "/.lsnotesrc");
+    config = fopen(path, "r");
     if (config != NULL) {
         fscanf(config, "%d%d", &instance.addTitle, &instance.addBottom);
     } else {
@@ -74,7 +78,15 @@ void readConfig() {
 
 void config() {
     FILE* configtmp = NULL;
-    configtmp = fopen(".lsnotesrc.tmp", "w+");
+    char* home = getenv("HOME");
+    char* pathtmp = new char[strlen(home) + 16];
+    strcpy(pathtmp, home);
+    strcat(pathtmp, "/.lsnotesrc.tmp");
+    char* path = new char[strlen(home) + 12];
+    strcpy(path, home);
+    strcat(path, "/.lsnotesrc");
+
+    configtmp = fopen(pathtmp, "w+");
     cout << "CONFIGURATION (0: no, 1: yes)" << endl;
     cout << "Add a title (Currently " << instance.addTitle << "): ";
     int t;
@@ -85,8 +97,8 @@ void config() {
     instance.addBottom = t;
     fprintf(configtmp, "%d %d", instance.addTitle, instance.addBottom);
     fclose(configtmp);
-    remove(".lsnotesrc");
-    rename(".lsnotesrc.tmp", ".lsnotesrc");
+    remove(path);
+    rename(pathtmp, path);
     cout << "Changes saved" << endl;
 }
 
