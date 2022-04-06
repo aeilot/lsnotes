@@ -4,6 +4,10 @@
 #include <cstring>
 #include <iostream>
 
+#include <cstdlib>
+
+#include "fmt/core.h"
+
 using namespace std;
 
 static const struct option long_options[] = {{"help", no_argument, NULL, 'h'},
