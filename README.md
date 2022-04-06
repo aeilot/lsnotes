@@ -9,6 +9,8 @@ It was originnaly just an April Fools joke that I told [@MrWillCom](https://gith
 ## Installation
 
 ```sh
+git submodule init
+git submodule update
 mkdir build && cd build
 cmake ..
 make
