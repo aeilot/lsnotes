@@ -42,6 +42,8 @@ message(" ")
 
 # =========== BUILD SOURCE FILES ============
 
+add_subdirectory(src/3rd-party/fmt)
+
 set(SOURCES
     src/main.cpp)
 
