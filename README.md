@@ -1,4 +1,6 @@
 # lsnotes
+(Part of the `better coreutils initiative`)
+
 Add a description to your directories! Simply add a `.lsnotes` file and that's it! This is the original repo of the `lsnotes` project.
 
 It's a especially simple project, but the idea makes me feel fresh! It should be made a shell project but I don't feel like that. Anyway, it has endless possibilities!
