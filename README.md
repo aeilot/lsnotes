@@ -19,7 +19,7 @@
 - **Markdown support** — so your notes can look sleek and formatted
 
 ## A story
-It was originnaly just an April Fools joke that I told [@MrWillCom](https://github.com/MrWillCom), but it turned out to be a brilliant idea. So I made this project.
+It was originally just an April Fools joke that I told [@MrWillCom](https://github.com/MrWillCom), but it turned out to be a brilliant idea. So I made this project.
 
 ## Installation
 
