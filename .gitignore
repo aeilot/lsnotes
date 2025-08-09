@@ -235,3 +235,4 @@ cmake-build-debug
 
 build
 .vscode/
+dist/
