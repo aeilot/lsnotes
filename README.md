@@ -1,42 +1,50 @@
 # lsnotes
-(Part of the `better coreutils initiative`)
 
-Add a description to your directories! Simply add a `.lsnotes` file and that's it! This is the original repo of the `lsnotes` project.
+> Adding descriptions to your directories!
 
-It's an especially simple project, but the idea makes me feel fresh! It should be made a shell project but I don't feel like that. Anyway, it has endless possibilities!
+---
+
+## What’s lsnotes?
+
+**lsnotes** lets you attach and display notes for directories. Just drop a `.lsnotes` file in any folder and voilà—your directory has a description. Now remade with:
+
+- **Python** — easier to use and extend  
+- **Typer** — for snappy, intuitive CLI  
+- **Markdown support** — so your notes can look sleek and formatted
 
 ## A story
 It was originnaly just an April Fools joke that I told [@MrWillCom](https://github.com/MrWillCom), but it turned out to be a brilliant idea. So I made this project.
 
 ## Installation
 
+Clone and build by yourself!
 ```sh
-git submodule init
-git submodule update
-mkdir build && cd build
-cmake ..
-make
-make install
+poetry install
+```
+
+or get it from PyPI!
+
+```sh
+pip install lsnotes
 ```
 
 ## Usage
 
 ```sh
-lsnotes # for viewing the description
-lsnotes --view or lsnotes -v # does the same as above
+lsnotes view # does the same as above
 
 lsnotes --help # for assistance
 
-lsnotes --edit or lsnotes -e # edits the .lsnotes file with your default editor
+lsnotes edit # edits the .lsnotes file with your default editor
 
-lsnotes --config or lsnotes -c # for configuration
+lsnotes config # for configuration
 ```
 
 ### Examples
 
 ```sh
-alias ls = "lsnotes && ls"
-alias pwd = "lsnotes && pwd"
+alias ls = "lsnotes view && ls"
+alias pwd = "lsnotes view && pwd"
 # etc.
 ```
 
