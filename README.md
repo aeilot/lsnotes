@@ -1,5 +1,9 @@
 # lsnotes
 
+<div style="text-align:center">
+<img width="762" height="600" alt="Screen Shot 2025-08-09 at 10 43 26 PM" src="https://github.com/user-attachments/assets/42f09502-402d-4397-af98-7f2cefff99f5" />
+</div>
+
 > Adding descriptions to your directories!
 
 ---
