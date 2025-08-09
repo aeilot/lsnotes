@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "lsnotes"
+version = "1.0.0"
+description = "A simple tool to add descriptions to directories by creating .lsnotes files, with endless possibilities for customization."
+authors = ["Louis Aeilot <1329415023@qq.com>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.scripts]
+lsnotes = "lsnotes.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+typer = "^0.16.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

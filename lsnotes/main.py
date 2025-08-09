@@ -6,7 +6,6 @@ import typer
 from rich.console import Console
 from rich.markdown import Markdown
 
-
 app = typer.Typer(add_completion=False)
 console = Console()
 
@@ -30,6 +29,8 @@ def read_config():
             instance.addTitle, instance.addBottom = 0, 1
     else:
         instance.addTitle, instance.addBottom = 0, 1
+
+read_config()
 
 def save_config():
     home = Path.home()
@@ -84,14 +85,10 @@ def config():
     save_config()
     typer.echo("Changes saved.")
 
+@app.command()
 def main():
-    read_config()
-    if len(os.sys.argv) == 1:
-        # No args, default to view
-        view()
-    else:
-        app()
+    view()
 
 if __name__ == "__main__":
-    main()
+    app()
 
