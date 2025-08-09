@@ -234,4 +234,4 @@ dkms.conf
 cmake-build-debug
 
 build
-.vscode
+.vscode/
